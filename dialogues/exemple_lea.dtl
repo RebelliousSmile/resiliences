@@ -1,0 +1,43 @@
+# Timeline d'exemple : conversation avec Léa
+#
+# Démontre l'intégration Dialogic 2 -> DialogicBridge -> RelationManager.
+# Le format ci-dessous est celui de Dialogic 2 (texte simplifié) ;
+# il sera converti par Dialogic à l'import.
+#
+# Convention d'usage (cf. scripts/dialogic/DialogicBridge.gd) :
+#   - signal "relation:<perso>:<delta>[:raison]"
+#   - signal "flag:<cle>:<valeur>"
+#   - signal "decision:<id>:<choix>"
+#   - signal "goto:<lieu>:<scene>"
+
+Lea: Salut, je t'attendais.
+
+- Lui sourire en retour
+    [signal arg="relation:Lea:+5:salut_chaleureux"]
+    Lea: Ça me fait plaisir de te voir.
+
+- Rester distant
+    [signal arg="relation:Lea:-3:salut_froid"]
+    Lea: ...d'accord.
+
+Lea: Tu as quelque chose à me dire ?
+
+- Lui parler de la photo
+    [if {a_vu_photo} == true]
+        [signal arg="flag:lea_sait_pour_photo:true"]
+        Lea: Tu as trouvé la photo ? Il faut qu'on en parle, vraiment.
+        [signal arg="relation:Lea:+8:confiance_partagee"]
+    [else]
+        Lea: Quelle photo ? Tu me fais peur.
+    [end]
+
+- Lui demander de partir avec toi
+    [signal arg="decision:fin_chap1:partir_avec_lea"]
+    [signal arg="relation:Lea:+10:lien_fort"]
+    Lea: Oui. Allons-y avant qu'il ne soit trop tard.
+    [signal arg="goto:exterieur:res://scenes/locations/Location_Template.tscn"]
+
+- Changer de sujet
+    Lea: Comme tu veux.
+
+end

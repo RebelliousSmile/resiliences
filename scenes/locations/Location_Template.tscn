@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1locationtpl001"]
+
+[ext_resource type="Script" path="res://scripts/ui/Hotspot.gd" id="1_hotspot"]
+[ext_resource type="PackedScene" uid="uid://b1relationhud0001" path="res://scenes/ui/RelationHUD.tscn" id="2_relhud"]
+[ext_resource type="Script" path="res://scenes/locations/Location_Template.gd" id="3_location"]
+
+[sub_resource type="RectangleShape2D" id="ShapeHotspot1"]
+size = Vector2(200, 200)
+
+[sub_resource type="RectangleShape2D" id="ShapeHotspot2"]
+size = Vector2(220, 260)
+
+[sub_resource type="RectangleShape2D" id="ShapeHotspot3"]
+size = Vector2(180, 180)
+
+[node name="Location" type="Node2D"]
+script = ExtResource("3_location")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Background" type="TextureRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="HotspotPorte" type="Area2D" parent="Hotspots"]
+position = Vector2(380, 540)
+script = ExtResource("1_hotspot")
+id = "porte_sortie"
+libelle = "Sortir"
+lieu_cible = "exterieur"
+scene_cible = "res://scenes/locations/Location_Template.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hotspots/HotspotPorte"]
+shape = SubResource("ShapeHotspot1")
+
+[node name="HotspotPersonnage" type="Area2D" parent="Hotspots"]
+position = Vector2(960, 600)
+script = ExtResource("1_hotspot")
+id = "parler_a_lea"
+libelle = "Parler à Léa"
+timeline = "res://dialogues/exemple_lea.dtl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hotspots/HotspotPersonnage"]
+shape = SubResource("ShapeHotspot2")
+
+[node name="HotspotObjet" type="Area2D" parent="Hotspots"]
+position = Vector2(1540, 720)
+script = ExtResource("1_hotspot")
+id = "examiner_photo"
+libelle = "Examiner la photo"
+flag_a_poser = "a_vu_photo"
+valeur_flag = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hotspots/HotspotObjet"]
+shape = SubResource("ShapeHotspot3")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="RelationHUD" parent="UI" instance=ExtResource("2_relhud")]
+personnages_presents = PackedStringArray("Lea", "Aurore")
+
+[node name="LibelleHotspot" type="Label" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1

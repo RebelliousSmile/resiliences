@@ -1,0 +1,20 @@
+# Godot 4 ignore patterns
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+*.translation
+*.import
+
+# Maaack template addons (réinstallés via l'AssetLib)
+addons/maaacks_game_template/
+addons/dialogic/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
