@@ -121,3 +121,36 @@ func resolve(seuil: String = "") -> String:
 	GameStateManager.set_flag("assemblee_issue", issue)
 	vote_resolved.emit(vote_id_courant, issue)
 	return issue
+
+
+## --- Sérialisation ---
+
+func reset() -> void:
+	vote_actif = false
+	vote_id_courant = ""
+	positions.clear()
+	tours_restants = 0
+	seuil_courant = "simple"
+
+
+func to_dict() -> Dictionary:
+	var pos_serialized := {}
+	for pnj_id in positions.keys():
+		pos_serialized[pnj_id] = int(positions[pnj_id])
+	return {
+		"vote_actif":      vote_actif,
+		"vote_id_courant": vote_id_courant,
+		"positions":       pos_serialized,
+		"tours_restants":  tours_restants,
+		"seuil_courant":   seuil_courant,
+	}
+
+
+func from_dict(data: Dictionary) -> void:
+	vote_actif      = data.get("vote_actif", false)
+	vote_id_courant = data.get("vote_id_courant", "")
+	tours_restants  = data.get("tours_restants", 0)
+	seuil_courant   = data.get("seuil_courant", "simple")
+	positions.clear()
+	for pnj_id in data.get("positions", {}).keys():
+		positions[pnj_id] = int(data["positions"][pnj_id])

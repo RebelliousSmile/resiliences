@@ -73,6 +73,13 @@ func is_reliable() -> bool:
 	return lumen_etat != LumenEtat.DEREGLE and lumen_etat != LumenEtat.PARTIEL
 
 
+## Remet l'état à zéro (appelé par SaveManager avant chargement).
+func reset() -> void:
+	lumen_etat = LumenEtat.SILENCIEUX
+	lumen_fragments_trouves = 0
+	_sync_to_dialogic()
+
+
 ## Sérialisation pour SaveManager.
 func to_dict() -> Dictionary:
 	return {

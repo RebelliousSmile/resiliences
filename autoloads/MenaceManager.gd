@@ -78,6 +78,16 @@ func consume_pending_happenings() -> Array:
 	return pending
 
 
+## Remet l'état à zéro (appelé par SaveManager avant chargement).
+func reset() -> void:
+	menace_confluence = 0
+	menace_gerland    = 0
+	menace_vallee     = 0
+	menace_solaize    = 0
+	_happenings_declenches.clear()
+	_happenings_en_attente.clear()
+
+
 ## Sérialisation pour SaveManager.
 func to_dict() -> Dictionary:
 	return {

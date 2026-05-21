@@ -32,6 +32,8 @@ func save(slot: int) -> void:
 		"lumen":      LumenManager.to_dict(),
 		"menace":     MenaceManager.to_dict(),
 		"inventaire": InventaireManager.to_dict(),
+		"conflit":    ConflitManager.to_dict(),
+		"vote":       AssembleeVoteManager.to_dict(),
 	}
 	var path := _path_for_slot(slot)
 	var file := FileAccess.open(path, FileAccess.WRITE)
@@ -64,15 +66,22 @@ func load_save(slot: int) -> bool:
 		load_completed.emit(slot, false)
 		return false
 
-	# Reset avant d'appliquer pour repartir d'une base propre.
+	# Reset complet avant d'appliquer pour repartir d'une base propre.
 	GameStateManager.reset()
 	RelationManager.reset()
+	LumenManager.reset()
+	MenaceManager.reset()
+	InventaireManager.reset()
+	ConflitManager.reset()
+	AssembleeVoteManager.reset()
 
 	GameStateManager.from_dict(parsed.get("game_state", {}))
 	RelationManager.from_dict(parsed.get("relations", {}))
 	LumenManager.from_dict(parsed.get("lumen", {}))
 	MenaceManager.from_dict(parsed.get("menace", {}))
 	InventaireManager.from_dict(parsed.get("inventaire", {}))
+	ConflitManager.from_dict(parsed.get("conflit", {}))
+	AssembleeVoteManager.from_dict(parsed.get("vote", {}))
 
 	load_completed.emit(slot, true)
 	return true

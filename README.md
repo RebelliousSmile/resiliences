@@ -13,8 +13,7 @@ GDScript.
 
 - **Godot 4** (.NET non requis — GDScript pur)
 - **Dialogic 2** — dialogues, personnages, timelines
-- **Maaack's Game Template** — menus uniquement (le SaveManager est
-  réécrit, pas branché sur Maaack)
+
 
 ---
 
@@ -45,14 +44,7 @@ Dans Godot : `AssetLib` → chercher « Dialogic » → version 2.x →
 > Sans Dialogic, `DialogicBridge` ignore silencieusement les signaux
 > dans les timelines ; les autoloads restent appelables depuis du code.
 
-### 4. (Optionnel) Maaack's Game Template
-
-Si vous voulez les menus tout faits :
-`AssetLib` → « Maaack's Game Template » → `Install`. Ne pas écraser
-`project.godot`. Le SaveManager de Maaack n'est PAS utilisé — on a le
-nôtre dans `autoloads/SaveManager.gd`.
-
-### 5. Lancer la scène d'entrée
+### 4. Lancer la scène d'entrée
 
 Scène principale : `res://scenes/acte1/s1_01.tscn` (configurée comme
 `run/main_scene`). `F5` ou bouton lecture.

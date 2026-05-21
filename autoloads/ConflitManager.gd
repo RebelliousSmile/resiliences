@@ -83,6 +83,34 @@ func end_round() -> void:
 		_resoudre("temps_ecoule")
 
 
+## --- Sérialisation ---
+
+func reset() -> void:
+	conflit_actif = false
+	conflit_id_courant = ""
+	jauges.clear()
+	rounds_restants = 0
+	config_courante.clear()
+
+
+func to_dict() -> Dictionary:
+	return {
+		"conflit_actif":      conflit_actif,
+		"conflit_id_courant": conflit_id_courant,
+		"jauges":             jauges.duplicate(true),
+		"rounds_restants":    rounds_restants,
+		"config_courante":    config_courante.duplicate(true),
+	}
+
+
+func from_dict(data: Dictionary) -> void:
+	conflit_actif      = data.get("conflit_actif", false)
+	conflit_id_courant = data.get("conflit_id_courant", "")
+	jauges             = data.get("jauges", {}).duplicate(true)
+	rounds_restants    = data.get("rounds_restants", 0)
+	config_courante    = data.get("config_courante", {}).duplicate(true)
+
+
 ## --- Interne ---
 
 func _bornes_pour(jauge_id: String) -> Vector2i:

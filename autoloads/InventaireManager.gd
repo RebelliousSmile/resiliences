@@ -83,6 +83,11 @@ func get_craftable_hints() -> Array:
 	return out
 
 
+## Remet l'état à zéro (appelé par SaveManager avant chargement).
+func reset() -> void:
+	items.clear()
+
+
 ## Sérialisation pour SaveManager.
 func to_dict() -> Dictionary:
 	return items.duplicate(true)
