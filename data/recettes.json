@@ -1,0 +1,9 @@
+[
+  {
+    "id": "antenne_lumen",
+    "ingredients": ["cable_aerospatial", "panneau_solaire_fragment"],
+    "resultat": "antenne_lumen_bricolee",
+    "condition": "",
+    "lumen_hint": true
+  }
+]
