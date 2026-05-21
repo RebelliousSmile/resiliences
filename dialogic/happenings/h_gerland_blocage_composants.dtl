@@ -1,0 +1,15 @@
+# H_GERLAND_BLOCAGE_COMPOSANTS — Blocage des composants à Gerland
+# Zone : gerland  |  Seuil : 3
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Gerland, niveau 3. Les ateliers tournent au ralenti.
+# Les stocks de composants s'épuisent. Les réparations attendent.
+
+Narrateur: [HAPPENING gerland 3] Les étagères de l'atelier sont à moitié vides. On parle de rationner les pièces. Les travaux en cours s'accumulent sans avancer.
+
+end

@@ -1,0 +1,16 @@
+# H_CONFLUENCE_ULTIMATUM_SOLAIZE — Ultimatum de Solaize sur Confluence
+# Zone : confluence  |  Seuil : 9
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Confluence, niveau 9. Solaize a posé ses conditions.
+# Abandonner certaines ressources ou subir une intervention.
+# Le temps de répondre se compte en heures, pas en jours.
+
+Narrateur: [HAPPENING confluence 9] Un messager de Solaize a parlé devant tout le monde. Quarante-huit heures. Après, ils viennent prendre ce dont ils ont besoin.
+
+end

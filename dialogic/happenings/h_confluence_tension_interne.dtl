@@ -1,0 +1,15 @@
+# H_CONFLUENCE_TENSION_INTERNE — Tension interne croissante à Confluence
+# Zone : confluence  |  Seuil : 3
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Confluence, niveau 3. Les voix montent entre les groupes.
+# Petites frictions devenues habitudes. Rien d'irréparable — encore.
+
+Narrateur: [HAPPENING confluence 3] Des disputes à voix basse résonnent sous les arches. Les habitants de Confluence se regardent de biais.
+
+end

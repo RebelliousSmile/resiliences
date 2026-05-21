@@ -1,0 +1,15 @@
+# H_SOLAIZE_PRESSION_RESSOURCES — Pression sur les ressources à Solaize
+# Zone : solaize  |  Seuil : 6
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Solaize, niveau 6. Solaize exige sa part — ou davantage.
+# Les échanges se transforment en levées. Refuser coûte cher.
+
+Narrateur: [HAPPENING solaize 6] Les émissaires de Solaize sont repartis avec deux caisses de plus que prévu. On n'a pas protesté. On a regardé partir et on a fermé les portes.
+
+end

@@ -1,0 +1,15 @@
+# H_CONFLUENCE_ACCES_RESTREINT — Accès restreint à Confluence
+# Zone : confluence  |  Seuil : 6
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Confluence, niveau 6. Des barrages improvisés barrent les passages.
+# Ceux du dedans ne laissent plus entrer ceux du dehors sans raison.
+
+Narrateur: [HAPPENING confluence 6] Une corde tendue barre l'entrée de Confluence. Deux silhouettes veillent. On ne passe plus sans être reconnu.
+
+end

@@ -1,0 +1,15 @@
+# H_SOLAIZE_SURVEILLANCE_RENFORCEE — Surveillance renforcée à Solaize
+# Zone : solaize  |  Seuil : 3
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Solaize, niveau 3. Les patrouilles se font plus fréquentes.
+# On remarque les allées et venues. On pose des questions.
+
+Narrateur: [HAPPENING solaize 3] Des hommes de Solaize ont été vus sur les chemins de ronde. Ils notaient quelque chose. Personne ne sait quoi — personne n'a osé demander.
+
+end

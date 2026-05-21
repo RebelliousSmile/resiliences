@@ -1,0 +1,16 @@
+# H_GERLAND_PANNE_GENERATEUR — Panne du générateur à Gerland
+# Zone : gerland  |  Seuil : 6
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Gerland, niveau 6. Le générateur principal a lâché.
+# Sans courant, les outils de précision sont inutilisables.
+# La production s'arrête. Le froid gagne les ateliers.
+
+Narrateur: [HAPPENING gerland 6] Le générateur a rendu l'âme cette nuit. Dans l'atelier, personne ne parle. Les souffles font de la buée dans l'air froid.
+
+end

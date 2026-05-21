@@ -1,0 +1,16 @@
+# H_GERLAND_EVACUATION — Évacuation de Gerland
+# Zone : gerland  |  Seuil : 9
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Gerland, niveau 9. La zone n'est plus tenable.
+# Incendie, contamination ou effondrement structurel — peu importe la cause.
+# Ceux qui restent partent avec ce qu'ils peuvent porter.
+
+Narrateur: [HAPPENING gerland 9] L'ordre d'évacuation est tombé à l'aube. Les gens sortent en file, les bras chargés. Gerland brûle ou s'écroule — derrière eux, ça n'a plus d'importance.
+
+end

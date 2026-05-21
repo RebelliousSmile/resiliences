@@ -1,0 +1,15 @@
+# H_SOLAIZE_INTERVENTION_DIRECTE — Intervention directe de Solaize
+# Zone : solaize  |  Seuil : 9
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Solaize, niveau 9. Ils n'envoient plus de messagers.
+# Des hommes armés ont traversé la frontière. Ce n'est plus une négociation.
+
+Narrateur: [HAPPENING solaize 9] Une colonne de Solaize est entrée dans la zone cette nuit. Pas d'annonce, pas de discussion. Ils ont pris position. Le rapport de force a changé.
+
+end

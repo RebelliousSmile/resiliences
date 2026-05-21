@@ -1,0 +1,16 @@
+# H_VALLEE_INACCESSIBLE — Vallée inaccessible
+# Zone : vallee  |  Seuil : 8
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Vallée, niveau 8. Plus personne ne peut y entrer — ni en sortir facilement.
+# La contamination ou les groupes armés ont verrouillé les accès.
+# Ce qu'on y avait laissé est perdu.
+
+Narrateur: [HAPPENING vallee 8] Les routes vers la Vallée sont coupées. Ceux qui ont tenté de passer ne sont pas revenus. On barre le chemin sur la carte et on ne parle plus de ce qu'on y a laissé.
+
+end

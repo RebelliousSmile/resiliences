@@ -1,0 +1,15 @@
+# H_VALLEE_CONTAMINATION_ETENDUE — Contamination étendue dans la Vallée
+# Zone : vallee  |  Seuil : 4
+#
+# HAPPENING — déclenché automatiquement par MenaceManager.
+# À développer : contenu narratif, choix, effets via [signal arg="..."].
+#
+# Convention DialogicBridge : les effets passent par
+#   [signal arg="commande:arg1:..."]
+
+# Vallée, niveau 4. La contamination a débordé des zones connues.
+# Les points d'eau proches sont compromis. Les cultures risquent d'être perdues.
+
+Narrateur: [HAPPENING vallee 4] Les explorateurs sont rentrés la gorge serrée. La tache sombre sur le sol a avancé. Les puits de la rive est sont à proscrire jusqu'à nouvel ordre.
+
+end
