@@ -109,7 +109,41 @@ func _demander_vote(vote_id: String, seuil: String, tours: int) -> void:
 	data["vote_id"] = vote_id
 	data["seuil"] = seuil
 	data["tours"] = tours
+	# Applique les modificateurs_contextuels avant émission.
+	_appliquer_modificateurs(data)
 	vote_requested.emit(data)
+
+
+## Applique les modificateurs_contextuels du JSON de vote.
+## Format attendu dans le JSON :
+##   "modificateurs_contextuels": [
+##     { "pnj_id": "yasmine", "condition": "flag:noemie_ok=true", "position_initiale": 1 }
+##   ]
+## position_initiale utilise les valeurs enum VotePosition (0=POUR,1=CONTRE,2=ABSTENTION,3=INDECIS).
+func _appliquer_modificateurs(data: Dictionary) -> void:
+	var mods : Array = data.get("modificateurs_contextuels", [])
+	if mods.is_empty():
+		return
+	var participants : Array = data.get("participants", [])
+	for mod in mods:
+		if not mod is Dictionary:
+			continue
+		var cond : String = mod.get("condition", "")
+		if not evaluer_condition(cond):
+			continue
+		var pnj_id : String = mod.get("pnj_id", "")
+		var nouvelle_pos : int = int(mod.get("position_initiale", AssembleeVoteManager.VotePosition.INDECIS))
+		# Cherche le participant correspondant et met à jour sa position.
+		var trouve : bool = false
+		for p in participants:
+			if p is Dictionary and p.get("pnj_id", "") == pnj_id:
+				p["position"] = nouvelle_pos
+				trouve = true
+				break
+		if not trouve:
+			# Ajoute le participant s'il n'est pas encore dans la liste.
+			participants.append({ "pnj_id": pnj_id, "position": nouvelle_pos })
+	data["participants"] = participants
 
 
 func _demander_conflit(conflit_id: String) -> void:
