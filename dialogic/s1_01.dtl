@@ -1,0 +1,36 @@
+# S1-01 — Bord du Couloir (aube)
+#
+# Squelette de scène. Le contenu complet est défini dans
+# `scene_1_1_bord_du_couloir.md` (absent du dépôt — à réintégrer plus
+# tard). Cette version sert au test d'intégration des autoloads :
+#   - vérifie que la scène se charge
+#   - pose les flags de base via DialogicBridge
+#   - démontre l'utilisation des custom commands
+#
+# Convention : tous les effets passent par un signal_event avec un
+# argument "commande:arg1:..." cf. autoloads/DialogicBridge.gd
+
+# Aube. La passerelle se découpe sur le Couloir profond, vapeur basse,
+# silhouettes immobiles aux extrémités.
+
+Narrateur: Le pont craque sous tes pas. Une lumière froide descend dans la vallée.
+
+Narrateur: Devant toi, deux silhouettes. L'une à gauche, dos courbé.
+Narrateur: L'autre à droite, agenouillée près d'un sac éventré.
+
+- Aller vers la silhouette de gauche
+    [signal arg="flag:rive_silhouette1_relation:neutre"]
+    Narrateur: Elle se redresse à peine quand tu approches.
+- Aller vers la silhouette de droite (l'aider)
+    [signal arg="flag:rive_aide_silhouette2:true"]
+    [signal arg="flag:rive_silhouette2_relation:ouverte"]
+    [signal arg="relation:loan:5"]
+    Narrateur: Tu t'agenouilles et tu commences à ramasser ce qui peut l'être.
+- Continuer sans t'arrêter
+    [signal arg="flag:rive_silhouette1_relation:distante"]
+    [signal arg="flag:rive_silhouette2_relation:distante"]
+    Narrateur: Tu passes sans un mot. Le pont continue de craquer.
+
+Narrateur: Au bout du Couloir, quelque chose s'éclaire faiblement.
+
+end

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "cable_aerospatial",
+    "nom": "Câble aérospatial",
+    "description": "Conducteur tressé, isolation gris-bleu.",
+    "categorie": "composant",
+    "craftable": false,
+    "dialogic_tag": "item_cable"
+  },
+  {
+    "id": "panneau_solaire_fragment",
+    "nom": "Fragment de panneau solaire",
+    "description": "Quart d'un module photovoltaïque cassé.",
+    "categorie": "composant",
+    "craftable": false,
+    "dialogic_tag": "item_panneau"
+  },
+  {
+    "id": "antenne_lumen_bricolee",
+    "nom": "Antenne LUMEN (bricolée)",
+    "description": "Antenne d'appoint reliée au système LUMEN.",
+    "categorie": "outil",
+    "craftable": true,
+    "dialogic_tag": "item_antenne"
+  }
+]

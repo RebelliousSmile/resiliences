@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://bs1_01_001"]
+
+[ext_resource type="Script" path="res://scenes/acte1/s1_01.gd" id="1_s1_01"]
+[ext_resource type="Script" path="res://scenes/acte1/s1_01_init.gd" id="2_init"]
+[ext_resource type="PackedScene" uid="uid://blumendisplay001" path="res://scenes/base/LumenDisplay.tscn" id="3_lumen"]
+[ext_resource type="PackedScene" uid="uid://bmenacedisplay001" path="res://scenes/base/MenaceDisplay.tscn" id="4_menace"]
+[ext_resource type="PackedScene" uid="uid://binventairepanel001" path="res://scenes/base/InventairePanel.tscn" id="5_inv"]
+[ext_resource type="PackedScene" uid="uid://bobservationmenu001" path="res://scenes/base/ObservationMenu.tscn" id="6_obs"]
+[ext_resource type="PackedScene" uid="uid://bassembleevote001" path="res://scenes/base/AssembleeVote.tscn" id="7_vote"]
+[ext_resource type="PackedScene" uid="uid://bconflitjauges001" path="res://scenes/base/ConflitJauges.tscn" id="8_conf"]
+
+[node name="S1_01" type="Node2D"]
+script = ExtResource("1_s1_01")
+
+[node name="Init" type="Node" parent="."]
+script = ExtResource("2_init")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Image" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="LumenDisplay" parent="HUD" instance=ExtResource("3_lumen")]
+
+[node name="MenaceDisplay" parent="HUD" instance=ExtResource("4_menace")]
+
+[node name="InventairePanel" parent="HUD" instance=ExtResource("5_inv")]
+
+[node name="Overlays" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="ObservationMenu" parent="Overlays" instance=ExtResource("6_obs")]
+
+[node name="AssembleeVote" parent="Overlays" instance=ExtResource("7_vote")]
+
+[node name="ConflitJauges" parent="Overlays" instance=ExtResource("8_conf")]
