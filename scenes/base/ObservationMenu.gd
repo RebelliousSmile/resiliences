@@ -81,15 +81,8 @@ func _injecter_texte(texte: String, obs: Dictionary) -> void:
 
 
 func _condition_remplie(cond: String) -> bool:
-	if cond.is_empty():
-		return true
-	# Conditions très simples : "flag_name" ou "flag_name=valeur"
-	if cond.contains("="):
-		var parts := cond.split("=", false, 1)
-		var flag := parts[0].strip_edges()
-		var val := _parse_value(parts[1].strip_edges())
-		return GameStateManager.get_flag(flag) == val
-	return GameStateManager.get_flag(cond) == true
+	# Délègue à DialogicBridge pour partager la logique d'évaluation.
+	return DialogicBridge.evaluer_condition(cond)
 
 
 func _parse_value(brut: String):

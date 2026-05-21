@@ -136,6 +136,57 @@ func _charger_scenario(relative: String) -> Dictionary:
 	return parsed
 
 
+## --- Évaluation de conditions (observations, votes, modificateurs) ---
+
+## Évalue une condition.  Formats supportés :
+##   ""  |  "toujours"               → toujours vrai
+##   "lumen:<ETAT>"                  → LumenManager.lumen_etat == ETAT
+##   "flag:<nom>"                    → GameStateManager.get_flag(nom) == true
+##   "flag:<nom>=<valeur>"           → get_flag(nom) == valeur
+##   "variable:<nom> <op> <valeur>"  → comparaison (>=, <=, !=, >, <, =)
+##   "<nom>=<valeur>"  (compat)      → get_flag(nom) == valeur
+##   "<nom>"           (compat)      → get_flag(nom) == true
+func evaluer_condition(cond: String) -> bool:
+	cond = cond.strip_edges()
+	if cond.is_empty() or cond == "toujours":
+		return true
+	if cond.begins_with("lumen:"):
+		var etat_nom := cond.substr(6).strip_edges().to_upper()
+		var etat := LumenManager.parse_etat(etat_nom)
+		return LumenManager.lumen_etat == etat
+	if cond.begins_with("variable:"):
+		return _evaluer_variable(cond.substr(9).strip_edges())
+	if cond.begins_with("flag:"):
+		cond = cond.substr(5).strip_edges()
+	# Compat : "nom=valeur" ou "nom"
+	if cond.contains("="):
+		var parts := cond.split("=", false, 1)
+		var flag := parts[0].strip_edges()
+		var val  := _parse_value(parts[1].strip_edges())
+		return GameStateManager.get_flag(flag) == val
+	return GameStateManager.get_flag(cond) == true
+
+
+func _evaluer_variable(expr: String) -> bool:
+	for op in [">=", "<=", "!=", ">", "<", "="]:
+		if expr.contains(op):
+			var parts := expr.split(op, false, 1)
+			if parts.size() < 2:
+				continue
+			var nom := parts[0].strip_edges()
+			var val  := _parse_value(parts[1].strip_edges())
+			var actuelle = GameStateManager.get_flag(nom)
+			match op:
+				">=": return actuelle >= val
+				"<=": return actuelle <= val
+				"!=": return actuelle != val
+				">":  return actuelle > val
+				"<":  return actuelle < val
+				"=":  return actuelle == val
+	push_warning("DialogicBridge: expression variable invalide '%s'" % expr)
+	return false
+
+
 ## --- Helpers ---
 
 func _parse_value(brut: String):
