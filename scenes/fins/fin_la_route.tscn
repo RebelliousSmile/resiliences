@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fin_la_route_001"]
+
+[ext_resource type="Script" path="res://scenes/fins/fin_la_route.gd" id="1_script"]
+
+[node name="FinLaRoute" type="Node2D"]
+script = ExtResource("1_script")
